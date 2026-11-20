@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Sign In</title>
+    <!-- เชื่อมต่อไฟล์ CSS -->
+    <link rel="stylesheet" href="../src/css/style.css">
+    <!-- เชื่อมต่อฟอนต์ Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- เชื่อมต่อไฟล์ JS (ใช้ defer เพื่อให้โหลด HTML เสร็จก่อน) -->
+    <script src="../src/js/app.js" defer></script>
+</head>
+<body>
+    <div class="login-wrapper">
+        <!-- ฝั่งซ้าย: แบรนดิ้งและกราฟิก (ซ่อนในจอมือถือ) -->
+        <div class="login-brand">
+            <div class="brand-content">
+                <h1>Enterprise System</h1>
+                <p>Secure, fast, and scalable platform for modern businesses.</p>
+            </div>
+        </div>
+
+        <!-- ฝั่งขวา: ฟอร์มล็อกอิน -->
+        <div class="login-form-container">
+            <div class="form-wrapper">
+                <div class="form-header">
+                    <h2>Welcome back</h2>
+                    <p>Please enter your details to sign in.</p>
+                </div>
+
+                <form id="loginForm" class="enterprise-form">
+                    <!-- Email Input -->
+                    <div class="input-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" placeholder="name@company.com" required autocomplete="email">
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" placeholder="Enter your password" required autocomplete="current-password">
+                            <button type="button" id="togglePassword" class="btn-icon" aria-label="Toggle password visibility">
+                                <!-- ไอคอนตา (Eye Icon) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Options (Remember me & Forgot password) -->
+                    <div class="form-options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn-primary">
+                        <span class="btn-text">Sign In</span>
+                        <span class="loader hidden"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+</body>
+</html>

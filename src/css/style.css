@@ -1,0 +1,269 @@
+/* =========================================
+   Design System & Variables
+   ========================================= */
+:root {
+    --brand-primary: #1D4ED8; /* Enterprise Blue */
+    --brand-primary-hover: #1E40AF;
+    --text-main: #0F172A;
+    --text-muted: #64748B;
+    --bg-main: #FFFFFF;
+    --bg-secondary: #F8FAFC;
+    --border-color: #E2E8F0;
+    --focus-ring: rgba(29, 78, 216, 0.3);
+    --error-color: #EF4444;
+    --success-color: #10B981;
+    --radius-md: 8px;
+    --transition-fast: 0.2s ease;
+}
+
+/* =========================================
+   Base & Reset
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-main);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   Layout Structure
+   ========================================= */
+.login-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+.login-brand {
+    flex: 1;
+    background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.brand-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+}
+
+.brand-content p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    max-width: 400px;
+}
+
+.login-form-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--bg-main);
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* =========================================
+   Typography & Form Elements
+   ========================================= */
+.form-header {
+    margin-bottom: 2rem;
+}
+
+.form-header h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-muted);
+}
+
+.input-group {
+    margin-bottom: 1.25rem;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+/* Password Toggle */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.btn-icon {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.btn-icon:hover {
+    color: var(--text-main);
+}
+
+/* Options Row */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.forgot-link {
+    color: var(--brand-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Primary Button & Loader */
+.btn-primary {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--brand-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-fast);
+    position: relative;
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-primary-hover);
+}
+
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    position: absolute;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* =========================================
+   Toast Notification
+   ========================================= */
+.toast-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.toast {
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    color: white;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideIn 0.3s forwards;
+}
+
+.toast.error { background-color: var(--error-color); }
+.toast.success { background-color: var(--success-color); }
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   Responsive Design (Mobile First adjustments)
+   ========================================= */
+@media (max-width: 768px) {
+    .login-brand {
+        display: none; /* ซ่อนฝั่งกราฟิกในหน้าจอมือถือ */
+    }
+    
+    .login-form-container {
+        padding: 1.5rem;
+        background-color: var(--bg-secondary);
+    }
+    
+    .form-wrapper {
+        background: var(--bg-main);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .toast-container {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        text-align: center;
+    }
+}
